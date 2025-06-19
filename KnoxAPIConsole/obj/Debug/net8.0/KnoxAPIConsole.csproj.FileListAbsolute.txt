@@ -1,0 +1,17 @@
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\bin\Debug\net8.0\KnoxAPIConsole.exe
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\bin\Debug\net8.0\KnoxAPIConsole.deps.json
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\bin\Debug\net8.0\KnoxAPIConsole.runtimeconfig.json
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\bin\Debug\net8.0\KnoxAPIConsole.dll
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\bin\Debug\net8.0\KnoxAPIConsole.pdb
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.AssemblyInfoInputs.cache
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.AssemblyInfo.cs
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.csproj.CoreCompileInputs.cache
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.dll
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\refint\KnoxAPIConsole.dll
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.pdb
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.genruntimeconfig.cache
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\ref\KnoxAPIConsole.dll
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.csproj.AssemblyReference.cache
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIC.5C19EEBF.Up2Date
