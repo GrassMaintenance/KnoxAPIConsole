@@ -15,3 +15,4 @@ C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\ref\KnoxAPIConsole.dl
 C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.csproj.AssemblyReference.cache
 C:\Programs\KnoxAPIConsole\KnoxAPIConsole\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIC.5C19EEBF.Up2Date
+C:\Programs\KnoxAPIConsole\KnoxAPIConsole\obj\Debug\net8.0\KnoxAPIConsole.sourcelink.json

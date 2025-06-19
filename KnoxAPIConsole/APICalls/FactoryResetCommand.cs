@@ -1,5 +1,6 @@
 ﻿using KnoxAPIConsole.Client;
 using Newtonsoft.Json.Linq;
+using KnoxAPIConsole.Helpers;
 
 namespace KnoxAPIConsole.APICalls;
 
@@ -13,28 +14,8 @@ public class FactoryResetCommand : IKnoxCommand {
 
     public async Task ExecuteAsync() {
         Console.WriteLine("\nResetting Tablet");
-        string? deviceID = await GetDeviceID();
+        string? deviceID = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
         if(deviceID != null) await FactoryReset(deviceID);
-    }
-
-    private async Task<string?> GetDeviceID() {
-        endpoint = "https://us01.manage.samsungknox.com/emm/oapi/device/selectDevicesByUser";
-
-        FormUrlEncodedContent payload = new([
-            new KeyValuePair<string, string>("userId", _tabletNumber)
-        ]);
-
-        try {
-            var response = await ClientManager.client.PostAsync(endpoint, payload);
-            response.EnsureSuccessStatusCode();
-
-            string content = await response.Content.ReadAsStringAsync();
-            JObject json = JObject.Parse(content);
-            return json["resultValue"]?[0]?["deviceId"].ToString();
-        } catch (Exception ex) {
-            Console.WriteLine("Error trying to factory reset: " + ex);
-            return null;
-        }
     }
 
     private async Task FactoryReset(string deviceID) {
