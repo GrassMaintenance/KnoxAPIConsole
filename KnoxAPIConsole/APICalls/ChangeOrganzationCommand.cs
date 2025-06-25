@@ -18,7 +18,8 @@ public class ChangeOrganizationCommand : IKnoxCommand {
 
         FormUrlEncodedContent payload = new([
             new KeyValuePair<string, string>("userId", _tabletNumber),
-            new KeyValuePair<string, string>("orgCode", "Enterprise-Public-Production")
+            new KeyValuePair<string, string>("userName", _tabletNumber),
+            new KeyValuePair<string, string>("orgCode", "Enterprise-Public-Drivers")
         ]);
 
         try {
@@ -28,11 +29,8 @@ public class ChangeOrganizationCommand : IKnoxCommand {
             string content = await response.Content.ReadAsStringAsync();
             JObject json = JObject.Parse(content);
 
-            using PushProfileCommand {
 
-            }
-
-            Console.WriteLine("Success!");
+            Console.WriteLine("content");
         } catch (Exception ex) {
             Console.WriteLine("Error updating organization: " + ex.Message);
         }

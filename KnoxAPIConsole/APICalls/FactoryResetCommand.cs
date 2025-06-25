@@ -6,7 +6,7 @@ namespace KnoxAPIConsole.APICalls;
 
 public class FactoryResetCommand : IKnoxCommand {
     private readonly string _tabletNumber;
-    private string endpoint;
+    private const string endpoint = "https://us01.manage.samsungknox.com/emm/oapi/mdm/commonOTCServiceWrapper/sendDeviceControlForFactoryReset";
 
     public FactoryResetCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;
@@ -14,27 +14,19 @@ public class FactoryResetCommand : IKnoxCommand {
 
     public async Task ExecuteAsync() {
         Console.WriteLine("\nResetting Tablet");
+        
         string? deviceID = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
-        if(deviceID != null) await FactoryReset(deviceID);
-    }
-
-    private async Task FactoryReset(string deviceID) {
-        endpoint = "https://us01.manage.samsungknox.com/emm/oapi/mdm/commonOTCServiceWrapper/sendDeviceControlForFactoryReset";
-
-        FormUrlEncodedContent payload = new([
-            new KeyValuePair<string, string>("deviceId", deviceID)
-        ]);
-
-        try {
-            var response = await ClientManager.client.PostAsync(endpoint, payload);
-            response.EnsureSuccessStatusCode();
-
-            string content = await response.Content.ReadAsStringAsync();
-            JObject json = JObject.Parse(content);
-
-            Console.WriteLine("Success!");
-        } catch (Exception ex) {
-            Console.WriteLine("Error factory resetting device: " + ex);
+        if (deviceID == null) {
+            Console.WriteLine("Device ID not found.");
+            return;
         }
+
+        var payload = new[] {
+            new KeyValuePair<string, string>("deviceId", deviceID)
+        };
+
+        JObject? json = await HttpHelper.PostFormAsync(endpoint, payload);
+
+        Console.WriteLine(json != null ? "Success!" : "Failed to factory reset the device.");
     }
 }

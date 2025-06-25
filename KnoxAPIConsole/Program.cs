@@ -1,29 +1,52 @@
 ﻿using KnoxAPIConsole.Client;
+using KnoxAPIConsole.Menu;
 
 namespace KnoxAPIConsole;
 
 public class Program {
     public static async Task Main(string[] args) {
+        ConfigureConsole();
+
+        try {
+            await RunWithAnimation("Setting up HttpClient", ClientManager.SetupClient());
+        } catch (Exception ex) {
+            Console.WriteLine($"[ERROR] Failed to initialize HttpClient {ex.Message}");
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+            return;
+        }
+
+        string tabletNumber = PromptTabletNumber();
+        OptionMenu optionMenu = new(tabletNumber);
+        await optionMenu.SetupMenu();
+    }
+
+    private static void ConfigureConsole() {
         Console.BackgroundColor = ConsoleColor.Black;
         Console.ForegroundColor = ConsoleColor.White;
         Console.CursorVisible = false;
+    }
 
-        // Play animation while trying to receive access token
-        Task clientTask = ClientManager.SetupClient();
-        while (!clientTask.IsCompleted) {
-            await Animator.Play("Setting up HttpClient");
+    private static async Task RunWithAnimation(string label, Task task) {
+        while(!task.IsCompleted) {
+            await Animator.Play(label);
         }
-        await clientTask;
 
-        //Get tablet number without the "11-" prefix
+        await task;
+    }
+
+    private static string PromptTabletNumber() {
         Console.Clear();
         Console.CursorVisible = true;
-        
         Console.Write("Enter tablet number without the \"11-\" prefix: ");
-        string tabletNumber = "11-" + Console.ReadLine();
+        string? input = Console.ReadLine();
 
-        //Launch options menu for tablet
-        OptionMenu optionMenu = new(tabletNumber);
-        await optionMenu.SetupMenu();
+        if (string.IsNullOrEmpty(input)) {
+            Console.WriteLine("Tablet number cannot be empty. Press any key to exit...");
+            Console.ReadKey();
+            Environment.Exit(1);
+        }
+
+        return "11-" + input.Trim();
     }
 }
