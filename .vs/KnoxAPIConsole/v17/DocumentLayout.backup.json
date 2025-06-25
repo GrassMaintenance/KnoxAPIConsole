@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Programs\\KnoxAPIConsole\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\apicalls\\updateappcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\apicalls\\updateappcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\apicalls\\unenrolldevicecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\apicalls\\unenrolldevicecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\apicalls\\factoryresetcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\apicalls\\factoryresetcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +22,66 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpdateAppCommand.cs",
-              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\UpdateAppCommand.cs",
-              "RelativeDocumentMoniker": "KnoxAPIConsole\\APICalls\\UpdateAppCommand.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\UpdateAppCommand.cs",
-              "RelativeToolTip": "KnoxAPIConsole\\APICalls\\UpdateAppCommand.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAQwCYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T20:03:15.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FactoryResetCommand.cs",
-              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\FactoryResetCommand.cs",
-              "RelativeDocumentMoniker": "KnoxAPIConsole\\APICalls\\FactoryResetCommand.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\FactoryResetCommand.cs",
-              "RelativeToolTip": "KnoxAPIConsole\\APICalls\\FactoryResetCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABMAAAAAAAAAA==",
+              "Title": "UnenrollDeviceCommand.cs",
+              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\UnenrollDeviceCommand.cs",
+              "RelativeDocumentMoniker": "KnoxAPIConsole\\APICalls\\UnenrollDeviceCommand.cs",
+              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\UnenrollDeviceCommand.cs*",
+              "RelativeToolTip": "KnoxAPIConsole\\APICalls\\UnenrollDeviceCommand.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T20:02:04.2Z",
+              "WhenOpened": "2025-06-25T13:06:09.026Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "OptionMenu.cs",
               "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\OptionMenu.cs",
               "RelativeDocumentMoniker": "KnoxAPIConsole\\OptionMenu.cs",
               "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\OptionMenu.cs",
               "RelativeToolTip": "KnoxAPIConsole\\OptionMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-19T17:19:54.669Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "84d506f9-5ed9-44fb-abd0-8b3a2638f86c",
+        "Display": 2,
+        "X": 134,
+        "Y": 392,
+        "Width": 1282,
+        "Height": 567,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FactoryResetCommand.cs",
+              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\FactoryResetCommand.cs",
+              "RelativeDocumentMoniker": "KnoxAPIConsole\\APICalls\\FactoryResetCommand.cs",
+              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\FactoryResetCommand.cs",
+              "RelativeToolTip": "KnoxAPIConsole\\APICalls\\FactoryResetCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T13:05:16.074Z",
               "EditorCaption": ""
             }
           ]

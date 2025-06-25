@@ -11,13 +11,13 @@ public class OptionMenu {
         options = new() {
             { "Get Device Version", new GetDeviceVersionCommand(tabletNumber) },
             { "Update Password", new UpdatePasswordCommand(tabletNumber) },
-            //{ "Change Organization", ChangeOrganization },
-            //{ "Push Profile", PushProfile },
+            { "Change Organization", new ChangeOrganizationCommand(tabletNumber)},
+            { "Push Profile", new PushProfileCommand(tabletNumber) },
             //{ "Clear App Data", ClearAppData },
             { "Update App", new UpdateAppCommand(tabletNumber) },
             //{ "Uninstall App", UninstallApp },
             { "Factory Reset", new FactoryResetCommand(tabletNumber) },
-            //{ "Unenroll Device", UnenrollDevice },
+            { "Unenroll Device", new UnenrollDeviceCommand(tabletNumber) }
             //{ "Quit", Quit }
         };
     }
