@@ -1,41 +1,53 @@
-﻿using KnoxAPIConsole.Client;
-using KnoxAPIConsole.Helpers;
+﻿using KnoxAPIConsole.Helpers;
 using Newtonsoft.Json.Linq;
 
 namespace KnoxAPIConsole.APICalls;
 
 public class UpdateAppCommand : IKnoxCommand {
     private readonly string _tabletNumber;
-    private string endpoint;
+    private const string appListEndpoint = "https://us01.manage.samsungknox.com/emm/oapi/device/selectDeviceAppList";
 
     public UpdateAppCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;
     }
 
     public async Task ExecuteAsync() {
-        string? deviceID = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
-        if (deviceID != null) { GetAppList(deviceID); } 
-    }
+        Console.WriteLine("Retrieving app list...");
 
-    private async Task GetAppList(string deviceID) {
-        endpoint = "https://us01.manage.samsungknox.com/emm/oapi/device/selectDeviceAppList";
-
-        FormUrlEncodedContent payload = new([
-            new KeyValuePair<string, string>("deviceId", deviceID)
-        ]);
-
-        try {
-            var response = await ClientManager.client.PostAsync(endpoint, payload);
-            response.EnsureSuccessStatusCode();
-
-            string content = await response.Content.ReadAsStringAsync();
-            JObject json = JObject.Parse(content);
-
-            foreach (JObject app in json["resultValue"]?["appList"] ?? new JArray()) {
-                Console.WriteLine(app["packageName"]);
-            }
-        } catch (Exception ex) {
-            Console.WriteLine("Error fetching app list: " + ex.Message);
+        string? deviceId = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
+        if (deviceId == null) {
+            Console.WriteLine("Device ID not found.");
+            return;
         }
+
+        string? orgCode = await OrganizationHelper.GetOrganizationCodeAsync(_tabletNumber);
+        if (orgCode == null) {
+            Console.WriteLine("Organization code not found.");
+            return;
+        }
+
+        var payload = new[] {
+            new KeyValuePair<string, string>("deviceId", deviceId)
+        };
+
+        JObject? response = await HttpHelper.PostFormAsync(appListEndpoint, payload);
+        if (response == null) {
+            Console.WriteLine("Failed to fetch app list.");
+            return;
+        }
+
+        var appList = response["resultValue"]?["appList"] as JArray;
+        if (appList == null || appList.Count == 0) {
+            Console.WriteLine("No apps found.");
+            return;
+        }
+
+        var filteredApps = AppFilterHelper.FilterAppsByOrg(orgCode, appList.Cast<JObject>());
+        Console.WriteLine($"\nFiltered apps for org '{orgCode}':\n");
+        foreach (var app in filteredApps) {
+            Console.WriteLine(app["packageName"]?.ToString() ?? "(Unnamed App)");
+        }
+
+        Console.Read();
     }
 }

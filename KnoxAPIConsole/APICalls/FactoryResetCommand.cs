@@ -1,5 +1,4 @@
-﻿using KnoxAPIConsole.Client;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using KnoxAPIConsole.Helpers;
 
 namespace KnoxAPIConsole.APICalls;

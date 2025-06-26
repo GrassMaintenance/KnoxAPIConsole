@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Programs\\KnoxAPIConsole\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\menu\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\menu\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\apicalls\\updatepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\apicalls\\updatepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\helpers\\devicehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\helpers\\devicehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\apicalls\\updateappcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\apicalls\\updateappcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,62 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "OptionMenu.cs",
-              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "RelativeDocumentMoniker": "KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "RelativeToolTip": "KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABJAAAAAAAAAA==",
+              "Title": "UpdateAppCommand.cs",
+              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\UpdateAppCommand.cs",
+              "RelativeDocumentMoniker": "KnoxAPIConsole\\APICalls\\UpdateAppCommand.cs",
+              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\UpdateAppCommand.cs",
+              "RelativeToolTip": "KnoxAPIConsole\\APICalls\\UpdateAppCommand.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T17:19:54.669Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "0d7707c3-95bf-4d21-862b-116f153d2a7c",
-        "Display": 2,
-        "X": 142,
-        "Y": 106,
-        "Width": 1794,
-        "Height": 855,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DeviceHelper.cs",
-              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Helpers\\DeviceHelper.cs",
-              "RelativeDocumentMoniker": "KnoxAPIConsole\\Helpers\\DeviceHelper.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Helpers\\DeviceHelper.cs",
-              "RelativeToolTip": "KnoxAPIConsole\\Helpers\\DeviceHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T14:05:34.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdatePasswordCommand.cs",
-              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\UpdatePasswordCommand.cs",
-              "RelativeDocumentMoniker": "KnoxAPIConsole\\APICalls\\UpdatePasswordCommand.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\UpdatePasswordCommand.cs",
-              "RelativeToolTip": "KnoxAPIConsole\\APICalls\\UpdatePasswordCommand.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T14:12:26.657Z",
+              "WhenOpened": "2025-06-25T18:32:15.556Z",
               "EditorCaption": ""
             }
           ]
