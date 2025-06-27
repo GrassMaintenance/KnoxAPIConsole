@@ -11,10 +11,10 @@ public class OptionMenu {
         menuOptions = new() {
             new("Get Device Version", new GetDeviceVersionCommand(tabletNumber)),
             new("Update Password", new UpdatePasswordCommand(tabletNumber)),
-            new("Change Organization", new ChangeOrganizationCommand(tabletNumber)),
+            new("Change Organization", new ChangeOrganizationCommand(tabletNumber)), // TODO: Implement profile pushing
             new("Push Profile", new PushProfileCommand(tabletNumber)),
             new("Clear App Data", new ClearAppDataCommand(tabletNumber)),
-            new("Install/Update App", new UpdateAppCommand(tabletNumber)),
+            //new("Install/Update App", new UpdateAppCommand(tabletNumber)), TODO: Implement app installation
             new("Uninstall App", new UninstallAppCommand(tabletNumber)),
             new("Factory Reset", new FactoryResetCommand(tabletNumber)),
             new("Unenroll Device", new UnenrollDeviceCommand(tabletNumber)),

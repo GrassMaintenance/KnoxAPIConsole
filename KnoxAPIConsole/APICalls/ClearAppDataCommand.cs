@@ -1,4 +1,5 @@
 ﻿using KnoxAPIConsole.Helpers;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace KnoxAPIConsole.APICalls;
@@ -51,8 +52,8 @@ public class ClearAppDataCommand : IKnoxCommand {
             return null;
         }
 
-        var payload = new[] {
-            new KeyValuePair<string, string>("appPackage", packageName),
+        var payload = new [] {
+            new KeyValuePair<string, string>("appPackages", JsonConvert.SerializeObject(new[] {packageName})),
             new KeyValuePair<string, string>("deviceId", deviceId)
         };
 
