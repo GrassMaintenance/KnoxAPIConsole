@@ -3,6 +3,7 @@
 namespace KnoxAPIConsole.Helpers;
 
 public static class AppFilterHelper {
+    #region Dictionaries
     private static readonly Dictionary<string, HashSet<string>> allowedApps = new() {
         {"Enterprise-Public-Drivers", new() {
             "com.sds.emm.cloud.knox.samsung",
@@ -54,6 +55,19 @@ public static class AppFilterHelper {
         }
     };
 
+    private static readonly Dictionary<string, string> appDisplayNames = new() {
+        { "com.sds.emm.cloud.knox.samsung", "Knox Manage" },
+        { "com.homecityice.icedelivery", "Ice Delivery" },
+        { "com.keeptruckin.android", "Motive Keep Truckin'" },
+        { "com.android.chrome", "Google Chrome" },
+        { "com.squareup", "Square POS" },
+        { "com.usbank.oed", "US Bank" },
+        { "com.acumatica.androidapp", "Acumatica" },
+        { "com.snapinspect.snapinspect3", "SnapInspect" },
+        { "com.hha", "HCI Producion" }
+    };
+    #endregion
+
     public static IEnumerable<JObject> FilterAppsByOrg(string orgCode, IEnumerable<JObject> apps) {
         if(!allowedApps.TryGetValue(orgCode, out var allowedSet)) {
             return apps;
@@ -63,5 +77,10 @@ public static class AppFilterHelper {
             string? packageName = app["packageName"]?.ToString();
             return packageName != null && allowedSet.Contains(packageName);
         });
+    }
+
+    public static string GetDisplayName(string packageName) {
+        return appDisplayNames.TryGetValue(packageName, out var name)
+            ? name : packageName;
     }
 }

@@ -67,14 +67,15 @@ public class OptionMenu {
     }
 
     private async Task RunCommand(IKnoxCommand command) {
-        Task task = command.ExecuteAsync();
-        
-        while(!task.IsCompleted) {
-            await Animator.Play("Calling API endpoint");
+        if(command is UpdateAppCommand) {
+            await command.ExecuteAsync();
+        } else {
+            Task task = command.ExecuteAsync();
+            Task animationTask = Animator.PlayUntilComplete("Calling API endpoint", task);
+            await animationTask;
         }
 
-        await task;
-        Console.WriteLine("\nPress any key to return to the menu...");
+            Console.WriteLine("\nPress any key to return to the menu...");
         Console.ReadKey();
     }
 }

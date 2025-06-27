@@ -13,20 +13,15 @@ public static class DeviceHelper {
             new KeyValuePair<string, string>("userId", tabletNumber)
         };
 
-        try {
-            var response = await ClientManager.client.PostAsync(deviceIdEndPoint, new FormUrlEncodedContent(payload));
-            response.EnsureSuccessStatusCode();
-
-            string content = await response.Content.ReadAsStringAsync();
-            JObject json = JObject.Parse(content);
-
-            var deviceArray = json["resultValue"] as JArray;
-            var device = deviceArray?.FirstOrDefault() as JObject;
-            return device?["deviceId"]?.ToString();
-        } catch (Exception ex) {
-            Console.WriteLine("Error retrieving device ID: " + ex.Message);
+        JObject? json = await HttpHelper.PostFormAsync(deviceIdEndPoint, payload);
+        var deviceArray = json?["resultValue"] as JArray;
+        var device = deviceArray?.FirstOrDefault() as JObject;
+        if (device == null) {
+            Console.WriteLine("No device found for the given tablet number.");
             return null;
         }
+
+        return device["deviceId"]?.ToString();
     }
 
     public static async Task<JObject?> GetDeviceMetadataAsync(string deviceId) {        
@@ -40,21 +35,25 @@ public static class DeviceHelper {
             new KeyValuePair<string, string>("deviceId", deviceId)
         };
 
-        try {
-            var response = await ClientManager.client.PostAsync(deviceMetadataEndPoint, new FormUrlEncodedContent(payload));
-            response.EnsureSuccessStatusCode();
+        JObject? json = await HttpHelper.PostFormAsync(deviceMetadataEndPoint, payload);
+        JObject? device = json?["resultValue"] as JObject;
 
-            string content = await response.Content.ReadAsStringAsync();
-            JObject json = JObject.Parse(content);
-            JObject? device = json["resultValue"] as JObject;
+        if (device != null) {
+            _deviceMetadataCache[deviceId] = device;
+        } else {
+            Console.WriteLine("Device metadata was not found in the response");
+        }
 
-            if (device != null)
-                _deviceMetadataCache[deviceId] = device;
+        return device;
+    }
 
-            return device;
-        } catch (Exception ex) {
-            Console.WriteLine("Error retrieving device metadata: " + ex.Message);
+    public static async Task<JObject?> GetDeviceMetadataAsyncByTabletNumber(string tabletNumber) {
+        string? deviceId = await GetDeviceIDAsync(tabletNumber);
+        if (string.IsNullOrWhiteSpace(deviceId)) {
+            Console.WriteLine("Failed to resolve device ID from tablet number");
             return null;
         }
+
+        return await GetDeviceMetadataAsync(deviceId);
     }
 }

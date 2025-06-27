@@ -1,53 +1,73 @@
 ﻿using KnoxAPIConsole.Helpers;
 using Newtonsoft.Json.Linq;
+using System.Data;
 
 namespace KnoxAPIConsole.APICalls;
 
 public class UpdateAppCommand : IKnoxCommand {
     private readonly string _tabletNumber;
-    private const string appListEndpoint = "https://us01.manage.samsungknox.com/emm/oapi/device/selectDeviceAppList";
+    private const string installAppEndpoint = "https://us01.manage.samsungknox.com/emm/oapi/mdm/commonOTCServiceWrapper/sendDeviceControlForInstallApp";
 
     public UpdateAppCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;
     }
 
     public async Task ExecuteAsync() {
-        Console.WriteLine("Retrieving app list...");
+        Console.Clear();
 
-        string? deviceId = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
-        if (deviceId == null) {
-            Console.WriteLine("Device ID not found.");
-            return;
+        JObject? selectedApp = await PromptUserToSelectAppAsync();
+        if (selectedApp == null) return;
+
+        string? deviceId = await GetDeviceIdAsync();
+        if (string.IsNullOrWhiteSpace(deviceId)) return;
+
+        JObject? result = await SendUpdateRequestAsync(deviceId, selectedApp);
+        LogUpdateResult(result, selectedApp);
+    }
+
+    private async Task<JObject?> PromptUserToSelectAppAsync() {
+        JObject? selectedApp = await AppSelectionHelper.PromptUserToSelectAppAsync( _tabletNumber);
+        if(selectedApp == null) {
+            Console.WriteLine("App selection cancelled.");
         }
 
-        string? orgCode = await OrganizationHelper.GetOrganizationCodeAsync(_tabletNumber);
-        if (orgCode == null) {
-            Console.WriteLine("Organization code not found.");
-            return;
+        return selectedApp;
+    }
+
+    private async Task<string?> GetDeviceIdAsync() {
+        string? deviceId = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
+        if (string.IsNullOrWhiteSpace(deviceId)) {
+            Console.WriteLine("Device ID not found.");
+        }
+
+        return deviceId;
+    }
+
+    private async Task<JObject?> SendUpdateRequestAsync(string deviceId, JObject selectedApp) {
+        string? packageName = selectedApp["packageName"]?.ToString();
+        if (string.IsNullOrWhiteSpace(packageName)) {
+            Console.WriteLine("Invalid package name.");
         }
 
         var payload = new[] {
-            new KeyValuePair<string, string>("deviceId", deviceId)
+            new KeyValuePair<string, string>("deviceId", deviceId),
+            new KeyValuePair<string, string>("packageName", packageName),
+            new KeyValuePair<string, string>("appInstallType", "FORCE"),
+            new KeyValuePair<string, string>("isLatest", "true")
         };
 
-        JObject? response = await HttpHelper.PostFormAsync(appListEndpoint, payload);
-        if (response == null) {
-            Console.WriteLine("Failed to fetch app list.");
-            return;
-        }
+        return await HttpHelper.PostFormAsync(installAppEndpoint, payload);
+    }
 
-        var appList = response["resultValue"]?["appList"] as JArray;
-        if (appList == null || appList.Count == 0) {
-            Console.WriteLine("No apps found.");
-            return;
-        }
+    private void LogUpdateResult(JObject? result, JObject selectedApp) {
+        string? packageName = selectedApp["packageName"]?.ToString();
+        string displayName = AppFilterHelper.GetDisplayName(packageName ?? "(unknown)");
 
-        var filteredApps = AppFilterHelper.FilterAppsByOrg(orgCode, appList.Cast<JObject>());
-        Console.WriteLine($"\nFiltered apps for org '{orgCode}':\n");
-        foreach (var app in filteredApps) {
-            Console.WriteLine(app["packageName"]?.ToString() ?? "(Unnamed App)");
+        if (result?["result"]?.ToString() == "success") {
+            Console.WriteLine($"\nSuccessfully triggered update to {displayName}.");
+        } else {
+            Console.WriteLine($"\nFailed to trigger update for {displayName}.");
+            Console.WriteLine(result?.ToString() ?? "No response.");
         }
-
-        Console.Read();
     }
 }

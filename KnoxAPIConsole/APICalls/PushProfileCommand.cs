@@ -24,7 +24,7 @@ public class PushProfileCommand : IKnoxCommand {
             new KeyValuePair<string, string>("deviceId", deviceID)
         };
 
-        JObject json = await HttpHelper.PostFormAsync(endpoint, payload);
+        JObject? json = await HttpHelper.PostFormAsync(endpoint, payload);
 
         Console.WriteLine(json != null ? "Success!" : "Failed to push profile to device.");
     }

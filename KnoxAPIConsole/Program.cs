@@ -28,11 +28,7 @@ public class Program {
     }
 
     private static async Task RunWithAnimation(string label, Task task) {
-        while(!task.IsCompleted) {
-            await Animator.Play(label);
-        }
-
-        await task;
+        await Animator.PlayUntilComplete(label, task);
     }
 
     private static string PromptTabletNumber() {

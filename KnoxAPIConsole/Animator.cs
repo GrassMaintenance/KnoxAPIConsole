@@ -1,16 +1,28 @@
 ﻿namespace KnoxAPIConsole;
 
 public class Animator {
-    private static int counter = 0;
     private static char[] animationChars = { '/', '-', '\\', '|' };
 
-    public static async Task Play(string message) {
-        int charValue = counter % animationChars.Length;
-        Console.SetCursorPosition(0, 0);
-        Console.Write($"{message}...{animationChars[charValue]}");
-        counter++;
-        counter %= animationChars.Length;
+    public static async Task PlayUntilComplete(string message, Task untilTask) {
+        int spinnerIndex = 0;
+        Console.Write($"{message}... ");
+        int spinnerPosition = Console.CursorLeft;
 
-        await Task.Delay(75);
+        Task spinnerTask = Task.Run(async () => {
+            while (!untilTask.IsCompleted) {
+                Console.Write(animationChars[spinnerIndex]);
+                await Task.Delay(75);
+
+                if (untilTask.IsCompleted) break;
+                
+                Console.Write('\b');
+                spinnerIndex = (spinnerIndex + 1) % animationChars.Length;
+            }
+        });
+
+        await Task.WhenAll(untilTask, spinnerTask);
+
+        Console.SetCursorPosition(spinnerPosition, Console.CursorTop);
+        Console.WriteLine($"{message}...Done");
     }
 }
