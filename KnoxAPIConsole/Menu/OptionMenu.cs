@@ -75,7 +75,7 @@ public class OptionMenu {
             await animationTask;
         }
 
-            Console.WriteLine("\nPress any key to return to the menu...");
+        Console.WriteLine("\n\nPress any key to return to the menu...");
         Console.ReadKey();
     }
 }

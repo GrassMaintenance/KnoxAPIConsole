@@ -6,7 +6,7 @@ public class Animator {
     public static async Task PlayUntilComplete(string message, Task untilTask) {
         int spinnerIndex = 0;
         Console.Write($"{message}... ");
-        int spinnerPosition = Console.CursorLeft;
+        int spinnerStartLeft = Console.CursorLeft;
 
         Task spinnerTask = Task.Run(async () => {
             while (!untilTask.IsCompleted) {
@@ -14,7 +14,7 @@ public class Animator {
                 await Task.Delay(75);
 
                 if (untilTask.IsCompleted) break;
-                
+
                 Console.Write('\b');
                 spinnerIndex = (spinnerIndex + 1) % animationChars.Length;
             }
@@ -22,7 +22,8 @@ public class Animator {
 
         await Task.WhenAll(untilTask, spinnerTask);
 
-        Console.SetCursorPosition(spinnerPosition, Console.CursorTop);
-        Console.WriteLine($"{message}...Done");
+        Console.SetCursorPosition(spinnerStartLeft, 0);
+        Console.Write("Done");
+        Console.WriteLine();
     }
 }

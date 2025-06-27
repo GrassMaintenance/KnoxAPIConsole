@@ -11,8 +11,6 @@ public class GetDeviceVersionCommand : IKnoxCommand {
     }
 
     public async Task ExecuteAsync() {
-        Console.WriteLine("\nFetching device version...");
-
         JObject? metadata = await DeviceHelper.GetDeviceMetadataAsyncByTabletNumber(_tabletNumber);
         if(metadata == null) {
             Console.WriteLine("Could not retrieve device metadata.");
