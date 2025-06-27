@@ -7,22 +7,24 @@ namespace KnoxAPIConsole.APICalls;
 public class UpdateAppCommand : IKnoxCommand {
     private readonly string _tabletNumber;
     private const string installAppEndpoint = "https://us01.manage.samsungknox.com/emm/oapi/mdm/commonOTCServiceWrapper/sendDeviceControlForInstallApp";
+    public bool UseAnimation => true;
 
     public UpdateAppCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;
     }
 
-    public async Task ExecuteAsync() {
+    public async Task<object?> ExecuteAsync() {
         Console.Clear();
 
         JObject? selectedApp = await PromptUserToSelectAppAsync();
-        if (selectedApp == null) return;
+        if (selectedApp == null) return null;
 
         string? deviceId = await GetDeviceIdAsync();
-        if (string.IsNullOrWhiteSpace(deviceId)) return;
+        if (string.IsNullOrWhiteSpace(deviceId)) return null;
 
         JObject? result = await SendUpdateRequestAsync(deviceId, selectedApp);
         LogUpdateResult(result, selectedApp);
+        return null;
     }
 
     private async Task<JObject?> PromptUserToSelectAppAsync() {
@@ -47,6 +49,7 @@ public class UpdateAppCommand : IKnoxCommand {
         string? packageName = selectedApp["packageName"]?.ToString();
         if (string.IsNullOrWhiteSpace(packageName)) {
             Console.WriteLine("Invalid package name.");
+            return null;
         }
 
         var payload = new[] {

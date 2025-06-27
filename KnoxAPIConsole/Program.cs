@@ -16,9 +16,31 @@ public class Program {
             return;
         }
 
-        string tabletNumber = PromptTabletNumber();
-        OptionMenu optionMenu = new(tabletNumber);
-        await optionMenu.SetupMenu();
+        string? tabletNumber = null;
+        while (true) {
+            if (string.IsNullOrEmpty(tabletNumber)) {
+                Console.Clear();
+                Console.CursorVisible = true;
+                Console.Write("Enter tablet number without the \"11-\" prefix: ");
+                string? input = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(input)) {
+                    Console.WriteLine("Tablet number cannot be empty. Press any key to exit...");
+                    Console.ReadKey();
+                    return;
+                }
+
+                tabletNumber = "11-" + input.Trim();
+            }
+
+            OptionMenu optionMenu = new(tabletNumber);
+            string? newTabletNumber = await optionMenu.SetupMenu();
+
+            if (!string.IsNullOrWhiteSpace(newTabletNumber)) {
+                tabletNumber = newTabletNumber;
+            }
+        }
+
     }
 
     private static void ConfigureConsole() {
@@ -29,20 +51,5 @@ public class Program {
 
     private static async Task RunWithAnimation(string label, Task task) {
         await Animator.PlayUntilComplete(label, task);
-    }
-
-    private static string PromptTabletNumber() {
-        Console.Clear();
-        Console.CursorVisible = true;
-        Console.Write("Enter tablet number without the \"11-\" prefix: ");
-        string? input = Console.ReadLine();
-
-        if (string.IsNullOrEmpty(input)) {
-            Console.WriteLine("Tablet number cannot be empty. Press any key to exit...");
-            Console.ReadKey();
-            Environment.Exit(1);
-        }
-
-        return "11-" + input.Trim();
     }
 }

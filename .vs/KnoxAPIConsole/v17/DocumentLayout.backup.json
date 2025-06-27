@@ -5,14 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\menu\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\menu\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\animator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\animator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\apicalls\\getdeviceversioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\apicalls\\getdeviceversioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GetDeviceVersionCommand.cs",
-              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\GetDeviceVersionCommand.cs",
-              "RelativeDocumentMoniker": "KnoxAPIConsole\\APICalls\\GetDeviceVersionCommand.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\GetDeviceVersionCommand.cs",
-              "RelativeToolTip": "KnoxAPIConsole\\APICalls\\GetDeviceVersionCommand.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T14:15:14.999Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "OptionMenu.cs",
               "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Menu\\OptionMenu.cs",
               "RelativeDocumentMoniker": "KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Menu\\OptionMenu.cs*",
-              "RelativeToolTip": "KnoxAPIConsole\\Menu\\OptionMenu.cs*",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Menu\\OptionMenu.cs",
+              "RelativeToolTip": "KnoxAPIConsole\\Menu\\OptionMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T14:06:26.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Animator.cs",
-              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Animator.cs",
-              "RelativeDocumentMoniker": "KnoxAPIConsole\\Animator.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Animator.cs",
-              "RelativeToolTip": "KnoxAPIConsole\\Animator.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T14:01:21.157Z",
+              "WhenOpened": "2025-06-27T15:24:20.84Z",
               "EditorCaption": ""
             }
           ]

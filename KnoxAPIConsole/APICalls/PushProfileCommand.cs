@@ -6,18 +6,19 @@ namespace KnoxAPIConsole.APICalls;
 public class PushProfileCommand : IKnoxCommand {
     private readonly string _tabletNumber;
     private string endpoint = "https://us01.manage.samsungknox.com/emm/oapi/mdm/commonOTCServiceWrapper/sendDeviceControlForUpdateProfile";
+    public bool UseAnimation => true;
 
     public PushProfileCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;
     }
 
-    public async Task ExecuteAsync() {
+    public async Task<object?> ExecuteAsync() {
         Console.WriteLine("\nUpdating Profile");
 
         string? deviceID = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
         if (deviceID == null) {
             Console.WriteLine("Device ID not found.");
-            return;
+            return null;
         }
 
         var payload = new[] {
@@ -27,5 +28,6 @@ public class PushProfileCommand : IKnoxCommand {
         JObject? json = await HttpHelper.PostFormAsync(endpoint, payload);
 
         Console.WriteLine(json != null ? "Success!" : "Failed to push profile to device.");
+        return null;
     }
 }

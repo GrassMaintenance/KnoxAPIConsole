@@ -6,12 +6,13 @@ namespace KnoxAPIConsole.APICalls;
 public class UpdatePasswordCommand : IKnoxCommand{
     private readonly string _tabletNumber;
     private const string endpoint = "https://us01.manage.samsungknox.com/emm/oapi/user/updatePassword";
+    public bool UseAnimation => true;
 
     public UpdatePasswordCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;
     }
 
-    public async Task ExecuteAsync() {
+    public async Task<object?> ExecuteAsync() {
         Console.WriteLine("\nUpdating Password...");
 
         string last4 = _tabletNumber.Length >= 4 ? _tabletNumber[^4..] : _tabletNumber;
@@ -24,5 +25,7 @@ public class UpdatePasswordCommand : IKnoxCommand{
 
         JObject? json = await HttpHelper.PostFormAsync(endpoint, payload);
         Console.WriteLine(json != null ? "Success!" : "Failed to update password.");
+
+        return null;
     }
 }

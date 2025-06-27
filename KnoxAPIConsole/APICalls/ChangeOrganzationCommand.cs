@@ -7,12 +7,13 @@ namespace KnoxAPIConsole.APICalls;
 public class ChangeOrganizationCommand : IKnoxCommand {
     private readonly string _tabletNumber;
     private string endpoint;
+    public bool UseAnimation => true;
     
     public ChangeOrganizationCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;
     }
 
-    public async Task ExecuteAsync() {
+    public async Task<object?> ExecuteAsync() {
         Console.WriteLine("\nUpdating organization...");
         endpoint = "https://us01.manage.samsungknox.com/emm/oapi/user/updateUser";
 
@@ -31,8 +32,10 @@ public class ChangeOrganizationCommand : IKnoxCommand {
 
 
             Console.WriteLine("content");
+            return null;
         } catch (Exception ex) {
             Console.WriteLine("Error updating organization: " + ex.Message);
+            return null;
         }
     }
 }

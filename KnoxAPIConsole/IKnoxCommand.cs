@@ -1,3 +1,4 @@
 ﻿public interface IKnoxCommand {
-   Task ExecuteAsync();
+   Task<object?> ExecuteAsync();
+   bool UseAnimation { get; }
 }

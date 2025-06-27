@@ -14,15 +14,15 @@ public class OptionMenu {
             new("Change Organization", new ChangeOrganizationCommand(tabletNumber)),
             new("Push Profile", new PushProfileCommand(tabletNumber)),
             //new("Clear App Data", new ClearAppDataCommand(tabletNumber)),
-            new("Update App", new UpdateAppCommand(tabletNumber)),
+            new("Install/Update App", new UpdateAppCommand(tabletNumber)),
             //new("Uninstall App", new UninstallAppCommand(tabletNumber)),
             new("Factory Reset", new FactoryResetCommand(tabletNumber)),
             new("Unenroll Device", new UnenrollDeviceCommand(tabletNumber)),
-            new("Quit", new QuitCommand())
+            new("Switch Tablet", new SwitchTabletCommand())
         };
     }
 
-    public async Task SetupMenu() {
+    public async Task<string?> SetupMenu() {
         while (true) {
             Console.Clear();
             DrawHeader();
@@ -35,7 +35,11 @@ public class OptionMenu {
             Console.Clear();
 
             var selected = menuOptions[choice - 1].Command;
-            await RunCommand(selected);
+            object? result = await RunCommand(selected);
+
+            if (selected is SwitchTabletCommand && result is string newTabletNumber) {
+                return newTabletNumber;
+            }
         }
     }
 
@@ -66,16 +70,18 @@ public class OptionMenu {
         }
     }
 
-    private async Task RunCommand(IKnoxCommand command) {
-        if(command is UpdateAppCommand) {
-            await command.ExecuteAsync();
+    private async Task<object?> RunCommand(IKnoxCommand command) {
+        Task<object?> task = command.ExecuteAsync();
+
+        if (command.UseAnimation) {
+            await Animator.PlayUntilComplete("Calling API endpoint", task);
         } else {
-            Task task = command.ExecuteAsync();
-            Task animationTask = Animator.PlayUntilComplete("Calling API endpoint", task);
-            await animationTask;
+            await task;
         }
 
-        Console.WriteLine("\n\nPress any key to return to the menu...");
+            Console.WriteLine("\n\nPress any key to return to the menu...");
         Console.ReadKey();
+        
+        return await task;
     }
 }
