@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KnoxAPIConsole")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c543aca59f0da6bb39f4c7fb748d54ecf32099b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12c4d1d6f798cb659ae0d3a3f066bcdb2e619e76")]
 [assembly: System.Reflection.AssemblyProductAttribute("KnoxAPIConsole")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KnoxAPIConsole")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

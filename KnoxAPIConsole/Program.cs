@@ -50,6 +50,6 @@ public class Program {
     }
 
     private static async Task RunWithAnimation(string label, Task task) {
-        await Animator.PlayUntilComplete(label, task);
+        await Animator.PlayUntilComplete(label, () => task);
     }
 }

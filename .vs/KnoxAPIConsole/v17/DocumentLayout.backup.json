@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Programs\\KnoxAPIConsole\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\menu\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\menu\\optionmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\helpers\\appselectionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\helpers\\appselectionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\helpers\\devicehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\helpers\\devicehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\apicalls\\clearappdatacommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\apicalls\\clearappdatacommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|c:\\programs\\knoxapiconsole\\knoxapiconsole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B37EE203-46FF-474E-B2E3-99532BD68930}|KnoxAPIConsole\\KnoxAPIConsole.csproj|solutionrelative:knoxapiconsole\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OptionMenu.cs",
-              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "RelativeDocumentMoniker": "KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "RelativeToolTip": "KnoxAPIConsole\\Menu\\OptionMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAXAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "DeviceHelper.cs",
+              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Helpers\\DeviceHelper.cs",
+              "RelativeDocumentMoniker": "KnoxAPIConsole\\Helpers\\DeviceHelper.cs",
+              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Helpers\\DeviceHelper.cs",
+              "RelativeToolTip": "KnoxAPIConsole\\Helpers\\DeviceHelper.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T15:24:20.84Z",
+              "WhenOpened": "2025-06-27T19:31:16.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppSelectionHelper.cs",
+              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Helpers\\AppSelectionHelper.cs",
+              "RelativeDocumentMoniker": "KnoxAPIConsole\\Helpers\\AppSelectionHelper.cs",
+              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Helpers\\AppSelectionHelper.cs",
+              "RelativeToolTip": "KnoxAPIConsole\\Helpers\\AppSelectionHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T19:30:08.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClearAppDataCommand.cs",
+              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\ClearAppDataCommand.cs",
+              "RelativeDocumentMoniker": "KnoxAPIConsole\\APICalls\\ClearAppDataCommand.cs",
+              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\APICalls\\ClearAppDataCommand.cs",
+              "RelativeToolTip": "KnoxAPIConsole\\APICalls\\ClearAppDataCommand.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T19:29:40.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Program.cs",
+              "RelativeDocumentMoniker": "KnoxAPIConsole\\Program.cs",
+              "ToolTip": "C:\\Programs\\KnoxAPIConsole\\KnoxAPIConsole\\Program.cs",
+              "RelativeToolTip": "KnoxAPIConsole\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T19:26:05.593Z",
               "EditorCaption": ""
             }
           ]
