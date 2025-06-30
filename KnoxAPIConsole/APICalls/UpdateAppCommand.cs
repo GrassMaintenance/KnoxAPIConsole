@@ -1,13 +1,11 @@
 ﻿using KnoxAPIConsole.Helpers;
 using Newtonsoft.Json.Linq;
-using System.Data;
 
 namespace KnoxAPIConsole.APICalls;
 
 public class UpdateAppCommand : IKnoxCommand {
     private readonly string _tabletNumber;
     private const string installAppEndpoint = "https://us01.manage.samsungknox.com/emm/oapi/mdm/commonOTCServiceWrapper/sendDeviceControlForInstallApp";
-    public bool UseAnimation => true;
 
     public UpdateAppCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;

@@ -11,7 +11,7 @@ public class OptionMenu {
         menuOptions = new() {
             new("Get Device Version", new GetDeviceVersionCommand(tabletNumber)),
             new("Update Password", new UpdatePasswordCommand(tabletNumber)),
-            new("Change Organization", new ChangeOrganizationCommand(tabletNumber)), // TODO: Implement profile pushing
+            new("Change Organization", new ChangeOrganizationCommand(tabletNumber)),
             new("Push Profile", new PushProfileCommand(tabletNumber)),
             new("Clear App Data", new ClearAppDataCommand(tabletNumber)),
             //new("Install/Update App", new UpdateAppCommand(tabletNumber)), TODO: Implement app installation
@@ -75,7 +75,7 @@ public class OptionMenu {
 
         await command.ExecuteAsync();
 
-        Console.WriteLine("\n\nPress any key to return to the menu...");
+        Console.WriteLine("\nPress any key to return to the menu...");
         Console.ReadKey();
         return null;
     }

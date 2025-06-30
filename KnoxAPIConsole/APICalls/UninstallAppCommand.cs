@@ -21,7 +21,10 @@ public class UninstallAppCommand : IKnoxCommand{
         string? deviceId = await GetDeviceIDAsync();
         if (string.IsNullOrWhiteSpace(deviceId)) return null;
 
-        JObject? result = await SendUninstallRequestAsync(deviceId, selectedApp);
+        JObject? result = await Animator.PlayUntilComplete("Uninstalling app", async () => {
+            return await SendUninstallRequestAsync(deviceId, selectedApp);
+        });
+        
         LogUpdateResult(result, selectedApp);
         return null;
     }

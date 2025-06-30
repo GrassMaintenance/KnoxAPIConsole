@@ -1,5 +1,4 @@
-﻿using KnoxAPIConsole.Client;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
 namespace KnoxAPIConsole.Helpers;
 
@@ -49,11 +48,6 @@ public static class DeviceHelper {
 
     public static async Task<JObject?> GetDeviceMetadataAsyncByTabletNumber(string tabletNumber) {
         string? deviceId = await GetDeviceIDAsync(tabletNumber);
-        if (string.IsNullOrWhiteSpace(deviceId)) {
-            Console.WriteLine("Failed to resolve device ID from tablet number");
-            return null;
-        }
-
-        return await GetDeviceMetadataAsync(deviceId);
+        return string.IsNullOrWhiteSpace(deviceId) ? null : await GetDeviceMetadataAsync(deviceId);
     }
 }

@@ -20,7 +20,7 @@ public class ClearAppDataCommand : IKnoxCommand {
         if(deviceId == null) return null;
 
         JObject? result = await Animator.PlayUntilComplete(
-            "Clearning app data",
+            "Clearing app data",
             () => SendClearAppDataRquestAsync(deviceId, selectedApp));
         
         LogUpdateResult(result, selectedApp);
