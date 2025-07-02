@@ -14,7 +14,7 @@ public class GetDeviceVersionCommand : IKnoxCommand {
         return await Animator.PlayUntilComplete<object?>("Retrieving device version", async () => {
             JObject? metadata = await DeviceHelper.GetDeviceMetadataAsyncByTabletNumber(_tabletNumber);
             if (metadata == null) {
-                Console.WriteLine("Could not retrieve device metadata.");
+                Console.WriteLine("\n\nCould not retrieve device metadata.");
                 return null;
             }
 
@@ -23,7 +23,7 @@ public class GetDeviceVersionCommand : IKnoxCommand {
                 Console.WriteLine("\n" + version);
                 return null;
             } else {
-                Console.WriteLine("Version information not found in metadata");
+                Console.WriteLine("\n\nVersion information not found in metadata");
                 return null;
             }
         });

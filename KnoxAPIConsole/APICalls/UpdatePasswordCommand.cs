@@ -18,12 +18,12 @@ public class UpdatePasswordCommand : IKnoxCommand{
             string password = $"HCI@@11{last4}";
 
             var payload = new[] {
-            new KeyValuePair<string, string>("userId", _tabletNumber),
-            new KeyValuePair<string, string>("userPassword", password)
-        };
+                new KeyValuePair<string, string>("userId", _tabletNumber),
+                new KeyValuePair<string, string>("userPassword", password)
+            };
 
             JObject? json = await HttpHelper.PostFormAsync(endpoint, payload);
-            Console.WriteLine(json != null ? "Success!" : "Failed to update password.");
+            Console.WriteLine(json != null ? "\nSuccess!" : "\nFailed to update password.");
 
             return null;
         });

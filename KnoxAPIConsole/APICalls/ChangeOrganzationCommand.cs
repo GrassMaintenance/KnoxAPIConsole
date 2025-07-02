@@ -73,7 +73,7 @@ public class ChangeOrganizationCommand : IKnoxCommand {
 
             return null;
         } catch (Exception ex) {
-            Console.WriteLine("Error updating organization: " + ex.Message);
+            Console.WriteLine("\nError updating organization: " + ex.Message);
             return null;
         }
     }

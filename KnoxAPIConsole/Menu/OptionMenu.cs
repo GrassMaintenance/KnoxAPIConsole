@@ -3,21 +3,27 @@
 namespace KnoxAPIConsole.Menu;
 
 public class OptionMenu {
-    private string tabletNumber;
-    private readonly List<MenuOption> menuOptions;
+    private string _tabletNumber;
+    private List<MenuOption> menuOptions;
 
     public OptionMenu(string tabletNumber) {
-        this.tabletNumber = tabletNumber;
+        _tabletNumber = tabletNumber;
+        menuOptions = new List<MenuOption>();
+        BuildMenuOptions();
+    }
+
+    private void BuildMenuOptions() {
+        menuOptions.Clear();
         menuOptions = new() {
-            new("Get Device Version", new GetDeviceVersionCommand(tabletNumber)),
-            new("Update Password", new UpdatePasswordCommand(tabletNumber)),
-            new("Change Organization", new ChangeOrganizationCommand(tabletNumber)),
-            new("Push Profile", new PushProfileCommand(tabletNumber)),
-            new("Clear App Data", new ClearAppDataCommand(tabletNumber)),
-            //new("Install/Update App", new UpdateAppCommand(tabletNumber)), TODO: Implement app installation
-            new("Uninstall App", new UninstallAppCommand(tabletNumber)),
-            new("Factory Reset", new FactoryResetCommand(tabletNumber)),
-            new("Unenroll Device", new UnenrollDeviceCommand(tabletNumber)),
+            new("Get Device Version", new GetDeviceVersionCommand(_tabletNumber)),
+            new("Update Password", new UpdatePasswordCommand(_tabletNumber)),
+            new("Change Organization", new ChangeOrganizationCommand(_tabletNumber)),
+            new("Push Profile", new PushProfileCommand(_tabletNumber)),
+            new("Power Off Device", new PowerOffCommand(_tabletNumber)),
+            new("Clear App Data", new ClearAppDataCommand(_tabletNumber)),
+            new("Uninstall App", new UninstallAppCommand(_tabletNumber)),
+            new("Factory Reset", new FactoryResetCommand(_tabletNumber)),
+            new("Unenroll Device", new UnenrollDeviceCommand(_tabletNumber)),
             new("Switch Tablet", new SwitchTabletCommand())
         };
     }
@@ -44,12 +50,12 @@ public class OptionMenu {
     }
 
     private void DrawHeader() {
-        int padding = (Console.WindowWidth - tabletNumber.Length) / 2;
+        int padding = (Console.WindowWidth - _tabletNumber.Length) / 2;
         Console.BackgroundColor = ConsoleColor.Blue;
         Console.ForegroundColor = ConsoleColor.White;
 
         Console.WriteLine(new string('*', Console.WindowWidth));
-        Console.WriteLine(tabletNumber.PadLeft(padding + tabletNumber.Length).PadRight(Console.WindowWidth));
+        Console.WriteLine(_tabletNumber.PadLeft(padding + _tabletNumber.Length).PadRight(Console.WindowWidth));
         Console.WriteLine(new string('*', Console.WindowWidth));
 
         Console.ResetColor();
@@ -73,10 +79,19 @@ public class OptionMenu {
     private async Task<object?> RunCommand(IKnoxCommand command) {
         Console.Clear();
 
-        await command.ExecuteAsync();
-
-        Console.WriteLine("\nPress any key to return to the menu...");
-        Console.ReadKey();
-        return null;
+        if (command is SwitchTabletCommand) {
+            var newTablet = await command.ExecuteAsync() as string;
+            if (!string.IsNullOrWhiteSpace(newTablet)) {
+                _tabletNumber = newTablet;
+                BuildMenuOptions();
+            }
+            await SetupMenu();
+            return null;
+        } else {
+            await command.ExecuteAsync();
+            Console.WriteLine("\nPress any key to return to the menu...");
+            Console.ReadKey();
+            return null;
+        }        
     }
 }

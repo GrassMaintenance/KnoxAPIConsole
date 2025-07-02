@@ -6,7 +6,6 @@ namespace KnoxAPIConsole.APICalls;
 public class UninstallAppCommand : IKnoxCommand{
     private readonly string _tabletNumber;
     private const string uninstallAppEndpoint = "https://us01.manage.samsungknox.com/emm/oapi/mdm/commonOTCServiceWrapper/sendDeviceControlForUninstallApp";
-    public bool UseAnimation => false;
 
     public UninstallAppCommand(string tabletNumber) {
         _tabletNumber = tabletNumber;
@@ -41,7 +40,7 @@ public class UninstallAppCommand : IKnoxCommand{
     private async Task<string?> GetDeviceIDAsync() {
         string? deviceId = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
         if (string.IsNullOrWhiteSpace(deviceId)) {
-            Console.WriteLine("Device ID not found.");
+            Console.WriteLine("\nDevice ID not found.");
         }
 
         return deviceId;
@@ -50,7 +49,7 @@ public class UninstallAppCommand : IKnoxCommand{
     private async Task<JObject?> SendUninstallRequestAsync(string deviceId, JObject selectedApp) {
         string? packageName = selectedApp["packageName"]?.ToString();
         if (string.IsNullOrWhiteSpace(packageName)) {
-            Console.WriteLine("Invalid package name");
+            Console.WriteLine("\nInvalid package name");
             return null;
         }
 

@@ -17,7 +17,7 @@ public class PushProfileCommand : IKnoxCommand {
 
         string? deviceID = await DeviceHelper.GetDeviceIDAsync(_tabletNumber);
         if (deviceID == null) {
-            Console.WriteLine("Device ID not found.");
+            Console.WriteLine("\nDevice ID not found.");
             return null;
         }
 
@@ -27,7 +27,7 @@ public class PushProfileCommand : IKnoxCommand {
 
         JObject? json = await HttpHelper.PostFormAsync(endpoint, payload);
 
-        Console.WriteLine(json != null ? "Success!" : "Failed to push profile to device.");
+        Console.WriteLine(json != null ? "\nSuccess!" : "\nFailed to push profile to device.");
         return null;
     }
 }

@@ -55,7 +55,7 @@ public class Animator {
         await Task.WhenAll(untilTask, spinnerTask);
 
         Console.SetCursorPosition(spinnerStartLeft, 0);
-        Console.Write("Done");
+        Console.Write("Done\n");
         Console.WriteLine();
     }
 }

@@ -2,7 +2,6 @@
 
 public class SwitchTabletCommand : IKnoxCommand{
     string? input;
-    public bool UseAnimation => false;
     
     public async Task<object?> ExecuteAsync() {
         await Task.Run(() => {
